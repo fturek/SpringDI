@@ -25,9 +25,8 @@ public class SpringMain {
     public static AnnotationConfigApplicationContext configurate (String ... args) {
         CommandLinePropertySource commandLinePropertySource = new SimpleCommandLinePropertySource(args);
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        ctx.scan("uj.jwzp.w4.logic");
-
         ctx.getEnvironment().getPropertySources().addFirst(commandLinePropertySource);
+        ctx.scan("uj.jwzp.w4.logic");
         ctx.refresh();
 
         return ctx;
